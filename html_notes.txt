@@ -1,0 +1,235 @@
+# basic syntax of html is made up of "tags, "attributes" and "elements"
+# tags : are tags names surrounded by left and right angle brackets, can be in pairs are can be single
+       e.g; <head> </head>     --> tag in pairs
+            <br>               --> tag not in pair
+  certain tags are meant to be containers meaning holding other tags within like <head></head> tag, while some
+  tags are meant to hold content like <title></title>
+
+# attributes : provide extra information about an element, and are always specified in the opening tag
+               e.g; <article attribute="value">              
+                    </article>
+                
+               NOTE: the value of attribute can be unquoted, in single quotes or in double quotes (generally best practice is double quotes)
+
+
+# elements: an element is a tag along with the content it wraps around
+          e.g; <p> this is a paragraph </p>     --> this whole thing is an element
+              
+
+# html tags are like nested containers, have parent child structure
+
+
+# if a file is named index.html and is present in the root directory of our project, then the web browser
+  considers it as the homepage of the application
+
+
+
+========= commmon tags in html =============
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a simple webpage">
+    <title>Document</title>
+</head>
+<body>
+    Hello World!!
+    <h2>Towfeeq's Website</h2>
+    <p>This is first <b><i>paragraph</i></b></p>
+    <p><big>This</big> is <small>second</small> paragraph</p>
+    <br><br>
+    <hr>
+    <p>This is second paragraph</p>
+
+    <p>H<sub>2</sub>O<p>
+    <p>10<sup>2</sup><p>
+    
+</body>
+</html>
+
+#> meta tag
+   - defines information about our file, so gives meta data
+   - Meta tags provide metadata about the HTML document. They don’t appear visually on the page but
+     give essential information to browsers, search engines, and other services
+   - generally present under head tags
+
+#> header tags
+   - used for defining headings
+   - can be from <h1></h1> to <h6></h6>
+   - h1 is biggest while h6 is smallest heading
+
+#> paragraph tag
+   - <p></p>
+   - generally whenever when we are writing a block of text, we are gonna use paragraph
+
+#> break tag
+   - used for adding empty lines
+   - <br>
+
+#> horizontal rule tag
+   - used for generate a horizontal line across the page
+   - <hr>
+
+#> control size using <big> and <small> tag (size is only changed little bit)
+   - <big></big> :- increases size relative to rest of text     (NOTE: big tag is deprecated)
+   - <small></small> :- decreases size relative to rest of text
+
+#> subscript and superscript tags
+   - <sub></sub>
+   - <sup></sup>
+
+
+
+## under body tag generally there are three sections;
+   1) <header></header> --> is on every page, can contain navigation menu, branding info, logo
+      ==> inside header we can have <nav> </nav> tag for storing navigational links
+   2) <main></main>     --> as the name suggests, the main articles (meat and bones go here)
+      ===> inside it can contain <article></article> tags
+      ===> if we want inside our <article></article> tag, we can have multiple <section></section> tags for our articles
+   3) <footer></footer> --> way to bottom, there are additional navigation links, addresses, media pages
+
+
+#> <aside></aside> tag
+   -> <aside></aside> tag is basically a tagthat you can use for any content,
+      that is not directly related to main content of the page. A good example
+      is like showing ads
+
+
+#> <a></a> tag: (link tag)
+   - is used to link our website with other websites on 
+     the internet, or link to other pages of my website
+   - can also be used to link to files like images, PDF which users can access
+   
+   <a href="https://www.google.com" target="_blank">Google's Homepage</a>
+
+   - target="_blank" will open the linked page in new tab
+
+   - to link an image you an use as below
+     <a href="cat.jpg"> Cat Image Link </a>
+
+
+## using images on website
+   > using link tag <a></a> to link an image to website vs embedding an image on the page are different
+   > to embed an image on to html page, we use <img> tag
+     <img width="100" height="200" src="https://plus.unsplash.com/premium_photo-1673967831980-1d377baaded2?q=80&w=2465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=A really cute cat">
+   > Note: In addition to setting both width and height, you can choose to only
+     set either the width or height. By only setting one, HTML will autmatically adjust
+     the aspect ratio for you. So if we only set width="100",
+     HTML will automatically resize the hieght correctly based on original aspect ration of image
+     (aspect ratio is width to height ratio)
+
+  
+  > if you want you can also make your image a link itself, so if someone clicks it, it is redirected to somewhere elements
+  <a href="https://www.catimage.com">
+     <img width="100" height="100" src="images/cat.jpg" alt="cat image">
+  </a>
+
+
+# using videos and youtube iframes
+  #> how to embedded a video stored within folder?
+  <video src="videos/html_meta_tags_tutorial.mp4" poster="images/img6.jpg" loop controls width="200">html tutorial</video>
+  # text within video tag is displayed if video fails to play
+  # poster attribute is used as thumbnail for the video
+
+
+  #> how to embed youtube video onto html page?
+  > we use iframe tag for that
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/qz0aGYrrlhU?si=w2YS7aOQ4I_ifcNP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+
+# creating lists in html
+  - ordered list
+     <ol type="a">
+        <li><a href="#">Apples</a></li>
+        <li>Oranges</li>
+        <ol>
+            <li>Indian</li>
+            <li>American</li>
+            <li>Chinese</li>
+        </ol>
+        <li>Mangoes</li>
+        <li>Grapes</li>
+    </ol>
+  - unordered list
+     <ul>
+        <li><a href="#">Apples</a></li>
+        <li>Oranges</li>
+        <li>Mangoes</li>
+        <li>Grapes</li>
+    </ul>
+  - description list
+     <dl>
+        <dt>Apple</dt>            # data term
+        <dd>- They are red</dd>   # data description
+        <dd>- They are juicy</dd>
+        <dt>Banana</dt>
+        <dd>- They are yellow</dd>
+     </dl>
+
+
+
+
+## tables in html
+
+    <table>
+        <thead>
+            <caption><h2>List Of Numbers</h2></caption>     # heading of the table
+            <tr>
+                <th>Num1</th>
+                <th>Num2</th>
+                <th>Num3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">one</td>    # colspan defines how many columns will current element take, rest elements in row will shift accordingly
+                <td>two</td>
+                <td>three</td>
+            </tr>
+
+            <tr>
+                <td >four</td>
+                <td>five</td>
+                <td>six</td>
+            </tr>
+            <tr>
+                <td>seven</td>
+                <td>eight</td>
+                <td>nine</td>
+                <td>ten</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+## divs and spans
+   - divs and spans are container tags in html.
+   - containers in html are set of tags that wraps other elements
+   - generally when we are writing HTML, it is good to wrap your html tags in what
+     we call the wrapper tags
+
+   NOTE: in html there are two main ways to display elements (there are more than 2 ways, but these are main ones)
+      1) block elements -> take entire width of the page
+         e.g;
+         <p>Paragraph1</p>
+         <p>Paragraph2</p>
+      2) inline elements -> take only as much space as they need
+         e.g;
+         <a href="#"> link1 </a>
+         <a href="#"> link2 </a>
+
+      some tags in html are block tags and some are inline tags
+
+- span is inline containers
+- div is block containers
+
+
+
+## forms in html
+#> 
+

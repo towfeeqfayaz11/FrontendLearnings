@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <!-- 
+    - all the inputs that we put inside this form are going to be submitted to wherever the form goes to.
+    - By default we we leave form blank, it is going to submit the page we are currently on 
+
+    -->
+    <form action="results.html" method="GET">
+      <div>
+        <label for="uName">Name</label>
+        <!-- <input type="text" name="userName" id="uName" value="User"/> -->
+        <input type="text" name="userName" id="uName" placeholder="UserName" required/>
+      </div>
+
+      <div>
+        <label>
+            Password
+            <input type="password" name="userPassword" required/>
+        </label>
+      </div>
+
+      <div>
+        <label for="uEmail">Email</label>
+        <input type="email" name="userEmail" id="uEmail" required/>
+      </div>
+
+      <div>
+        <label for="uAge">Age</label>
+        <input type="number" name="userAge" id="uAge" min="1" max="200" step="1"/>
+      </div>
+
+      <div>
+        <label for="uBDate">BirthDate</label>
+        <input type="date" name="date" id="uDate" min="2019-06-15" />
+      </div>
+
+      <div>
+        <dl>
+            <dt>Favourite Foods</dt>
+            <dd>
+                <div>
+                    <label for="bananaFruit">Banana</label>
+                    <input type="checkbox" name="banana" id="bananaFruit" />
+                </div>
+             </dd>
+             <dd>
+                <div>
+                    <label for="appleFruit">Apple</label>
+                    <input type="checkbox" name="apple" id="appleFruit" />
+                </div>
+            </dd>
+        </dl>
+      </div>
+
+
+      <div>
+        Gender
+        <div>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="MALE"/>
+        </div>
+        <div>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="FEMALE"/>
+        </div>
+      </div>
+      
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

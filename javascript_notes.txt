@@ -1,0 +1,88 @@
+# must have features in an ecommerce website
+
+products
+product card
+cart
+payment
+search
+user progile
+authorization
+order history
+banner/slider/carousel
+filters
+nav bar
+wishlist
+Review page (Rating)
+
+
+
+Why React over vanila javascript?
+> React has reusability of components
+> Faster (Virtual DOM)
+> Single Page Application (Routing)
+> Component Based
+
+
+> React is not SEO Friendly
+  > Next JS is a framework on top of react to make website SEO Friendly
+
+
+
+
+  ==================
+
+> cd /Users/towfeeq.fayaz/towfeeq/FrontendLearnings/scaler_frontend_masterclass
+# create a react app
+> npx create-react-app ecom-clone-react
+
+> cd ecom-clone-react
+
+# start react app
+> npm run start
+
+
+
+
+Index
+    App
+    Product
+    ProductCard
+
+
+// passing of parameters in react is called props
+
+
+
+
+Folder Structure in React Application (under src folder)
+--------------------------------------
+pages
+    ProductPage
+        ProductPage.jsx
+        index.js
+    CategoriesPage
+components
+    Generic
+        Rating
+            Rating.jsx
+            Rating.css
+            index.js
+        Navbar.jsx
+    Product
+        ProductCard
+        ProductList
+    Categories
+hooks
+context
+assets
+utils
+
+
+
+mocky api -> https://designer.mocky.io/
+
+
+
+from Frontend, we can fetch api data from backend using any one of below;
+1) fetch -> native
+2) axios -> package

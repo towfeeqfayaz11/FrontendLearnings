@@ -1,0 +1,7 @@
+syntax of style rule looks as below
+
+h1 {
+    font-size: 24px;
+    font-family: Helvetica;
+    color: blue;
+}
