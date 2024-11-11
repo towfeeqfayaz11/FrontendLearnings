@@ -3,11 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This is a simple webpage">
+    <meta name="author" content="mike">
+    <meta name="keywords" content="HTML, Tutorial, Learning">
+    <meta name="author" content="mike">
     <title>Document</title>
 </head>
 <body>
     Hello World!!
-    <h2>Towfeeq's Website</h2>
+    <h2>Towfeeqs Website</h2>
     <p>This is first <b><i>paragraph</i></b></p>
     <p><big>This</big> is <small>second</small> paragraph</p>
     
@@ -42,8 +45,25 @@
             <br>
 
             <video src="videos/html_meta_tags_tutorial.mp4" poster="images/img6.jpg" loop controls width="300">html tutorial</video>
+            <!--
+            controls -> gives pause play control of video
+            poster -> used as thumbnail
+            autoplay -> autoplay video when page loads
+            loop -> when video completes, start from beginning
+            -->
 
             <br>
+
+            <!--
+            ifram is an html element, which can be used to embed another website entirely inside your webpage
+            - text within iframe is displayed if website is not being able to load
+            - frameborder="0": can be used to remove the border of embedded website
+
+            - a lot of websites prevent their website to be used in iframe
+            -->
+
+            <iframe src="http://giraffeacademy.com/">Sorry</iframe>
+
             <iframe width="560" height="315" src="https://www.youtube.com/embed/qz0aGYrrlhU?si=w2YS7aOQ4I_ifcNP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         </nav>

@@ -1,5 +1,5 @@
 # basic syntax of html is made up of "tags, "attributes" and "elements"
-# tags : are tags names surrounded by left and right angle brackets, can be in pairs are can be single
+# tags : are tags names surrounded by left and right angle brackets, can be in pairs or can be single
        e.g; <head> </head>     --> tag in pairs
             <br>               --> tag not in pair
   certain tags are meant to be containers meaning holding other tags within like <head></head> tag, while some
@@ -18,10 +18,10 @@
 
 # html tags are like nested containers, have parent child structure
 
-
+************************NOTE:*********************
 # if a file is named index.html and is present in the root directory of our project, then the web browser
   considers it as the homepage of the application
-
+**************************************************
 
 
 ========= commmon tags in html =============
@@ -91,7 +91,7 @@
 
 
 #> <aside></aside> tag
-   -> <aside></aside> tag is basically a tagthat you can use for any content,
+   -> <aside></aside> tag is basically a tag that you can use for any content,
       that is not directly related to main content of the page. A good example
       is like showing ads
 
@@ -116,7 +116,7 @@
    > Note: In addition to setting both width and height, you can choose to only
      set either the width or height. By only setting one, HTML will autmatically adjust
      the aspect ratio for you. So if we only set width="100",
-     HTML will automatically resize the hieght correctly based on original aspect ration of image
+     HTML will automatically resize the height correctly based on original aspect ration of image
      (aspect ratio is width to height ratio)
 
   
@@ -233,3 +233,7 @@
 ## forms in html
 #> 
 
+
+
+## meta tags in html
+ - used for metadata

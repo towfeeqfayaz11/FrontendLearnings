@@ -7,18 +7,46 @@
   </head>
   <body>
     <!-- 
-    - all the inputs that we put inside this form are going to be submitted to wherever the form goes to.
-    - By default we we leave form blank, it is going to submit the page we are currently on 
+    - all the inputs that we put inside the form are going to be submitted to wherever the form goes to which is defined by `action` field
+    - By default if we leave form blank (meaning no action field), it is going to submit to the page we are currently on 
 
+    - method = GET|POST
+      => with GET, it is going to append the form content to url and send for sending
+      => with POST, we can send the data to server as post request
+
+    - enctype="multipart/form-data": this attribute is used to set in form when we are also send a file from our form to backend
+    
+      - since this files can be very large and we cannot sent them as one part, by setting this attribute, we tell the server
+        that we are sending our form in multiparts
     -->
-    <form action="results.html" method="GET">
+    <form action="results.html" method="GET" enctype="multipart/form-data">
       <div>
+
+        <!--
+          - for attribute of label and id attribute of input, help map the two tags with each other
+
+          - When a <label> is properly associated with an <input>, clicking on the label focuses the
+            input field. This makes it easier for users to interact with the form, especially on mobile
+            or when targeting smaller fields.
+        -->
         <label for="uName">Name</label>
         <!-- <input type="text" name="userName" id="uName" value="User"/> -->
+         <!--
+            if `value` is not set to some default, which will in that case display on form, then by  default it will be empty value
+            
+            NOTE: upon form submission, `name` and `value` fields are what are going to be send to destination
+         -->
         <input type="text" name="userName" id="uName" placeholder="UserName" required/>
       </div>
 
       <div>
+        <!--
+        - Wrapping the <input> Inside <label>
+
+        - Another way to link them (input and label) is by nesting the <input> inside the <label>. In this case,
+          the for attribute is not needed, as the association is implicit.
+        -->
+
         <label>
             Password
             <input type="password" name="userPassword" required/>
@@ -60,6 +88,9 @@
 
 
       <div>
+        <!--
+        if two radio buttons have same name, you can check only one at a time
+        -->
         Gender
         <div>
             <label for="male">Male</label>
@@ -70,9 +101,162 @@
             <input type="radio" name="gender" id="female" value="FEMALE"/>
         </div>
       </div>
+
+      <!--
+      select field works similiar to input field
+      - we can specify the label for option inbetween option tag like for `Green` here
+        or we can specify the label by using label attribute as used for `Red` here
+
+      -  we can select any one of the option for select field, or if we specify `multiple` as attribute, then we can select multiple
+      -->
+      <div>
+        <label for="eyeColor">Eye Color</label>
+        <select name="eyeColor" id="eyeColor" multiple>
+          <option value="Green">Green</option>
+          <option label="Red" value="Red"></option>
+        </select>
+      </div>
+
+      <!--
+      apart from `select`, we also have `textarea` which is used in form which is similiar to `input` 
+      -->
+      <div>
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio">
+          default text including/considering all preceeding whitelspaces as well 
+        </textarea>
+      </div>
+
+      <!--
+      hidden is a special type of input, because this field is not display to used, but can be send to the backend with value set as some default
+      -->
+        <input type="hidden" name="hidden" value="hi">
+
+
+      <div>
+        <label for="file">File</label>
+        <input type="file" id="file" name="file">
+      </div>
+
+      <!-- lesser used fields-->
+      <div>
+        <!--
+        when user is typing for this field on phone, he will be displayed with a keypad which is specific for typing numbers type numbers
+        and not just generic text
+        -->
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" id="phone">
+
+      </div>
+
+      <div>
+        <label for="url">URL</label>
+        <input type="url" name="url" id="url">
+      </div>
       
+      <div>
+        <label for="color">Color</label>
+        <input type="color" name="color" id="color">
+      </div>
+
       <button type="reset">Reset</button>
       <button type="submit">Submit</button>
     </form>
   </body>
 </html>
+
+
+
+<!--
+
+Let’s walk through this step-by-step to understand what happens when you submit the form in forms.html and how the data is displayed on results.html.
+
+Step 1: Form Submission in forms.html
+In your forms.html file, you have a form defined as follows:
+
+html
+Copy code
+<form action="results.html" method="GET">
+action="results.html":
+
+This attribute tells the browser where to send the form data when you submit it.
+Here, it’s set to "results.html", so when you submit the form, the browser navigates to results.html and sends the form data to this page.
+method="GET":
+
+The method="GET" attribute specifies how the data will be sent.
+With GET, the form data is appended to the URL as query parameters.
+When you submit the form, the URL might look something like this:
+vbnet
+Copy code
+results.html?userName=John&userPassword=secret&userEmail=john%40email.com&userAge=30&date=1995-12-15&banana=on&gender=MALE
+Each form field name is paired with its value, joined by &.
+Step 2: Navigating to results.html
+Once you click "Submit" in forms.html, the browser goes to results.html and passes the form data through the URL. Now results.html receives this data, which is part of the URL as query parameters. For example:
+
+vbnet
+Copy code
+results.html?userName=John&userPassword=secret&userEmail=john%40email.com&userAge=30&date=1995-12-15&banana=on&gender=MALE
+Step 3: Processing Data in results.html
+In results.html, you have this <script> section that handles displaying the data:
+
+html
+Copy code
+<script>
+    const resultsList = document.getElementById('results')
+    new URLSearchParams(window.location.search).forEach((value, name) => {
+        resultsList.append(`${name}: ${value}`)
+        resultsList.append(document.createElement('br'))
+    })
+</script>
+Here’s a breakdown of what this code does:
+
+window.location.search:
+
+This part gets the query string from the URL, which is everything after the ?.
+For example, window.location.search might return:
+perl
+Copy code
+"?userName=John&userPassword=secret&userEmail=john%40email.com&userAge=30&date=1995-12-15&banana=on&gender=MALE"
+new URLSearchParams(window.location.search):
+
+URLSearchParams is a JavaScript object that helps parse and handle query parameters.
+new URLSearchParams(window.location.search) turns the query string into a more manageable form, allowing us to loop through each key-value pair.
+forEach((value, name) => { ... }):
+
+forEach goes through each key-value pair (parameter name and value) in the query string.
+For each pair, it executes the code inside the curly braces { ... }.
+resultsList.append(${name}: ${value}):
+
+resultsList is a reference to the <div> element with id="results", where we want to display the data.
+resultsList.append(${name}: ${value}) adds text like userName: John or userEmail: john@email.com directly to the resultsList element.
+Adding a Line Break:
+
+resultsList.append(document.createElement('br')) creates a <br> element (a line break) after each entry, so each key-value pair appears on a new line.
+Example Output on results.html
+If you submitted the form with the following values:
+
+Name: John
+Password: secret
+Email: john@email.com
+Age: 30
+BirthDate: 1995-12-15
+Favorite Foods: Banana
+Gender: Male
+After submitting, results.html would display the data like this:
+
+vbnet
+Copy code
+userName: John
+userPassword: secret
+userEmail: john@email.com
+userAge: 30
+date: 1995-12-15
+banana: on
+gender: MALE
+Summary
+Submit the form: When you click "Submit" in forms.html, the form data is sent to results.html as part of the URL (because of method="GET").
+Process the URL: In results.html, JavaScript code reads and processes the query parameters.
+Display the data: Each form field’s name and value are displayed on the page inside the #results <div>, formatted as name: value on separate lines.
+
+
+-->

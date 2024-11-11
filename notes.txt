@@ -1,0 +1,23 @@
+# typical frontend project structure
+
+mywebsite
+---------
+   |-- index.html
+   |
+   |-- images/
+   |      |
+   |      |-- logo.jpg
+   |
+   |-- downloads/
+   |      |
+   |      |-- things.html
+   |
+   |
+   |-- biographies/
+   |      |
+   |      |-- brad.html
+
+
+
+   www.website.com/images/logo.jpg
+   

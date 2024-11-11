@@ -5,3 +5,8 @@ h1 {
     font-family: Helvetica;
     color: blue;
 }
+
+## vocabulary in css
+# selectors: here `h1` is called "selector"
+# properties: here `font-size`, `font-family`, `color` are called "properties"
+# values: here `24px`, `Helvetica`, `blue` are called "values" for properties
