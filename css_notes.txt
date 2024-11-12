@@ -10,3 +10,249 @@ h1 {
 # selectors: here `h1` is called "selector"
 # properties: here `font-size`, `font-family`, `color` are called "properties"
 # values: here `24px`, `Helvetica`, `blue` are called "values" for properties
+
+----------------------
+
+# css is a styling language
+# syntax of css;
+
+selector {
+    property1: value1;
+    property2: value2;
+}
+
+# types of selectors;
+  => element: 
+             - any html element/tag can be used as a selector e.g; h1, head, footer etc.
+             - the style defined for an element selector will apply to all html elements of that type
+             - to select a section using html element we can do as below
+             h1 {
+                property: value
+             }
+  => class:
+             - the most commonly used selector is class type selector
+             - class selector lets select html element based on class attribute of that html element
+             - class is just an attribute that all html elements can have
+
+             <h1 class="big-header">
+             Title
+             </h1>
+
+             - a class attribute can also have multiple different class in same attribute as long as they are seperated by spaces
+             <h1 class="red square warm">
+             Title
+             </h1>
+
+             - in order to select an html element by class, we can use as `.<classname>`, i.e; dot followed by class name.
+               The period(.) tells css, whatever follows is a class nane and not html element
+             .class-name {
+                property: value
+             }
+  => id:
+            - id selector is very similair to class selector but while an html element can have only one id, but can have multiple classes
+            - also id should be unique across entire web page, however same class selector can be used for many html elements
+
+            <h1 id="main-header">
+                Title
+            </h1>
+            
+            - in css, to use id as selector, we can use `#<id name>`
+
+            #id {
+                property: value
+            }
+
+
+# combine multiple selectors together
+----
+# to select all h1 elements with class "large-heading", we can use as below
+<h1 class="large-heading">
+    Title
+</h1>
+
+h1.large-heading {
+    font-size: 200%;
+}
+
+----
+# to select all elements with id "big-blue" and both classes "large" and "blue"
+<h1 id="big-blue" class="large blue">
+    Title
+</h1>
+
+#big-blue.large.blue {
+    font-size: 200%;
+    color: blue;
+}
+
+----
+# to select all `p` tags inside a div (even if the div is not direct parent of p)
+
+<div>
+<p>Selected</p>
+<p>Selected</p>
+<span>
+    <p>Selected</p>
+</span>
+</div>
+
+div p {              // notice the space between ancestor and child here
+    color: red;
+}
+
+----
+# to select all h1 tags with class of "brown" and having ancestor as header tag with class "main-header" 
+<header class="main-header>
+<h1 class="brown">
+    Selected
+</h1>
+<h1 class="blue">
+    Selected2
+</h1>
+</header>
+
+header.main-header h1.brown {
+    color: brown;
+}
+
+-----
+# to avoid duplication, we can write as below
+.big {
+    font-size: 200%;
+}
+
+.large {
+    font-size: 200%;
+}
+
+these can be written combined as 
+
+.big, .large {           // notice comma inbetween to club multiple selectors
+    font-size: 200%;
+}
+
+-----
+
+
+# everything selector (*) will select entire page
+# generally used for sending some defaults for webpage like font-family etc.
+* {
+    font-family: Arial;
+}
+
+
+--------------------------------------------
+NOTE:
+# if there are multiple styles defines for same tag in file, the last one defined takes effect
+
+# but, id selector has higher precedence over class selector, and class selector has higher precedence
+  over element selector in a css file
+
+NOTE: The rule is;
+      - Count number of id's in the selector, if they are equal, then count the number of
+        classes in selector, if they are also equal then count the number of elements. If
+        they are also equal, then whatever comes last in the file will take precedence
+
+
+# NOTE: anything defined in in html for style, overrides everything, no matter what
+--------------------------------------------
+
+## How to load css into html
+  => There are 3 ways to load css into html
+  1) inline style
+     - css is directly written inside html using `style` attribute and doesn' t need a selector
+     - not a good practice
+     <h1 style="color: blue;">
+        Blue Title
+     </h1>
+     - can cause page to load slower
+  2) style html element
+     - style element is the html element defined in head and formatted exactly like css file
+     <head>
+        <style>
+            .blue {
+                color: blue;
+            }
+        </style>
+     </head>
+
+     - the style defined in style element is only available on page on which you define it, thus not reusable across multiple pages
+  3) external css
+     - using link element in head section to link an external css file to html page
+     - this is reusable
+
+     <head>
+        <link rel="stylesheet" href="style.css" />
+     </head>
+
+     - this is best way to use css
+
+==============================================
+
+
+# colors can also be defined as hexadecimal (ranging 0 to F) values apart from name as;
+
+h1 {
+    color: #112233;
+}
+
+# hexadecimal is broken it 3 parts of 2 digit each
+  - first 2 digits represent 'red'
+  - middle 2 digits represent 'green'
+  - last 2 digits represent 'blue'
+  #FF22AA
+
+----------
+
+# we can also define opacity along with hexadecimal using 4th value again of 2 digits
+h1 {
+    color: #AABBCCFF;
+}
+
+------------
+
+# another way to define color is using rgb with 3 values (ranging from 0 to 255)
+h1 {
+    color: rgb(255,255,255);
+               red green blue
+}
+--------------
+# if we want to control opacity we can use rgba with 4 values (ranging from 0 to 255), last value ranges from 0 to 1 (where 0 is transparent and 1 is opaque)
+
+h1 {
+    color: rgba(255,255,255, .5);
+               red green blue opacity
+}
+
+---------------
+
+# we can also define color using hsl (huge saturation likeness) ranging from 0 to 360, but is defied as percentage as well
+h1 {
+    color: hsl(0,170,310, .5);
+}
+
+h2 {
+    color: hsl(0,50%,100%, .5);
+}
+
+================================
+
+## box model in css
+.box {
+    height: 100px;     // height of box
+    width: 80px;       // width of box
+    padding: 20px;     //outside box but inside border
+    margin: 50px;      // outside border of box
+    border: 10px solid black;
+    background-color: red;
+} 
+
+
+================================
+## units is css
+=> pixel (px): set fixed width on every screen
+=> percentage (%) -> relative to parent (will take given percenatge of available width/height of parent)
+=> em -> used mostly for fonts and font related situations
+         -  it scales off of the font-size in terms of pixels of parent (defaut font size is 16 pixels)
+=> rem -> used mostly for fonts and font related situations
+         - similair to em, but scales off the font-size of the root of the document
