@@ -9,7 +9,24 @@
     min-height: 100vh;
     padding-left: 8%;
     padding-right: 8%;
+
+    /*
+    # box-sizing: border-box;
+    - This controls how the width and height of an element are calculated.
+    - By default, width and height only include the content area, excluding
+      padding and border.
+    - With border-box, the width and height include the content, padding,
+      and border.
+    */
     box-sizing: border-box;
+
+    /*
+    overflow: hidden;
+    - Any content that goes beyond the dimensions of the container (both
+      horizontally and vertically) will be cut off and not displayed.
+    - There will be no scrollbars, and the user cannot access the hidden content.
+    - Content is not wrapped or moved to a new line but simply clipped at the container's edges.
+    */
     overflow: hidden;
 }
 
