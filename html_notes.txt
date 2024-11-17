@@ -236,4 +236,11 @@
 
 
 ## meta tags in html
- - used for metadata
+ - used for metadata in html page
+
+# meta robots tag in html
+ <meta name="robots" content="index, follow">
+ 
+ # content : index/noindex, follow/nofollow
+           => noindex is used when we don't want search engine to index/rank our page
+           => nofollow is used when we don't want search engine to follow/index the link present on your webpage
